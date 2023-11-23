@@ -98,6 +98,7 @@
     const additionalDiv1 = document.getElementById('additionalDiv1');
     const additionalDiv2 = document.getElementById('additionalDiv2');
     const additionalDiv3 = document.getElementById('additionalDiv3');
+    const additionalDiv4 = document.getElementById('additionalDiv4');
     
     // Add event listeners to the radio options
     radioOption1.addEventListener('change', function() {
@@ -110,6 +111,7 @@
          additionalDiv1.style.display = 'block';
         additionalDiv2.style.display = 'none';
         additionalDiv3.style.display = 'none';
+        additionalDiv4.style.display = 'none';
         selectField2.value = '';
         selectField3.value = '';
       }
@@ -123,8 +125,9 @@
         selectContainer4.style.display = 'none';
         selectContainer5.style.display = 'none';
         additionalDiv1.style.display = 'block';
-       additionalDiv2.style.display = 'none';
+        additionalDiv2.style.display = 'none';
         additionalDiv3.style.display = 'none';
+        additionalDiv4.style.display = 'none';
         selectField1.value = '';
         selectField3.value = '';
       }
@@ -138,8 +141,9 @@
         selectContainer4.style.display = 'none';
         selectContainer5.style.display = 'none';
         additionalDiv1.style.display = 'none';
-       additionalDiv2.style.display = 'none';
+        additionalDiv2.style.display = 'none';
         additionalDiv3.style.display = 'none';
+        additionalDiv4.style.display = 'none';
         selectField1.value = '';
         selectField2.value = '';
       
@@ -320,6 +324,7 @@
       var additionalDiv1 = document.getElementById('additionalDiv1');
       var additionalDiv2 = document.getElementById('additionalDiv2');
       var additionalDiv3 = document.getElementById('additionalDiv3');
+      var additionalDiv4 = document.getElementById('additionalDiv4');
     
       var checkboxes = [];
     
@@ -330,6 +335,8 @@
         checkboxes = additionalDiv2.querySelectorAll('input[type="checkbox"]');
       } else if (additionalDiv3.style.display === 'block') {
         checkboxes = additionalDiv3.querySelectorAll('input[type="checkbox"]');
+      } else if (additionalDiv4.style.display === 'block') {
+        checkboxes = additionalDiv4.querySelectorAll('input[type="checkbox"]');
       }
     
       // Check if at least one checkbox option is selected
