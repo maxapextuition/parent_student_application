@@ -313,7 +313,7 @@
     } else if (selectField3.value === 'VCE' && selectField4.value === '') {
         errorMessage.style.display = 'block';
         return false; // Validation failed for VCE
-    } else if (selectField3.value === 'HSC' && selectField5.value === '') {
+    } else if (selectField3.value === 'HSC' && selectField6.value === '') {
         errorMessage.style.display = 'block';
         return false; // Validation failed for HSC
     }
