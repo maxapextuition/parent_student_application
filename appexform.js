@@ -149,27 +149,33 @@
     
     // Add event listeners to the select fields
     selectField3.addEventListener('change', function() {
-      if (selectField3.value === 'VCE') {
-        selectContainer4.style.display = 'block';
-         additionalDiv2.style.display = 'block';
-        
-    
-      } else {
-        selectContainer4.style.display = 'none';
-        additionalDiv2.style.display = 'none';
-      }
-    });
-    
-    selectField3.addEventListener('change', function() {
-      if (selectField3.value === 'IB') {
-          selectContainer5.style.display = 'block';
-        additionalDiv3.style.display = 'block';
-        
-      } else {
-        selectContainer5.style.display = 'none';
-        additionalDiv3.style.display = 'none';
-      }
-    });
+  if (selectField3.value === 'VCE') {
+    selectContainer4.style.display = 'block';
+    additionalDiv2.style.display = 'block';
+    selectContainer5.style.display = 'none';
+    additionalDiv3.style.display = 'none';
+    additionalDiv4.style.display = 'none';  // Hide additionalDiv4 when VCE is selected
+  } else if (selectField3.value === 'IB') {
+    selectContainer5.style.display = 'block';
+    additionalDiv3.style.display = 'block';
+    selectContainer4.style.display = 'none';
+    additionalDiv2.style.display = 'none';
+    additionalDiv4.style.display = 'none';  // Hide additionalDiv4 when IB is selected
+  } else if (selectField3.value === 'HSC') {
+    selectContainer5.style.display = 'block';
+    additionalDiv4.style.display = 'block';  // Show additionalDiv4 when HSC is selected
+    selectContainer4.style.display = 'none';
+    additionalDiv2.style.display = 'none';
+    additionalDiv3.style.display = 'none';  // Hide additionalDiv3 when HSC is selected
+  } else {
+    // Hide all containers if none of the above options are selected
+    selectContainer4.style.display = 'none';
+    selectContainer5.style.display = 'none';
+    additionalDiv2.style.display = 'none';
+    additionalDiv3.style.display = 'none';
+    additionalDiv4.style.display = 'none';
+  }
+});
     
    
     
@@ -271,31 +277,39 @@
     }
     
     function validateStep3() {
-      
-      // Reset error message
-      var errorMessage = document.getElementById('step3ErrorMessage');
-      errorMessage.style.display = 'none';
-    
-      // Check if at least one radio option is selected in Step 2
-      if (!radioOption1.checked && !radioOption2.checked && !radioOption3.checked) {
+    // Reset error message
+    var errorMessage = document.getElementById('step3ErrorMessage');
+    errorMessage.style.display = 'none';
+
+    // Check if at least one radio option is selected in Step 2
+    if (!radioOption1.checked && !radioOption2.checked && !radioOption3.checked) {
         errorMessage.style.display = 'block';
         return false; // Validation failed
-      }
-    
-      // Check if the corresponding select field is empty for the checked radio option
-      if (
-        (radioOption1.checked && selectField1.value === '') ||
-        (radioOption2.checked && selectField2.value === '') ||
-        (radioOption3.checked && selectField3.value === '') ||
-        (selectField3.value === 'IB' && selectField5.value === '') ||
-          (selectField3.value === 'VCE' && selectField4.value === '')  
-     ) {
-        errorMessage.style.display = 'block';
-        return false; // Validation failed
-      }
-      
-      return true; // Validation succeeded
     }
+
+    // Check if the corresponding select field is empty for the checked radio option
+    if ((radioOption1.checked && selectField1.value === '') ||
+        (radioOption2.checked && selectField2.value === '') ||
+        (radioOption3.checked && selectField3.value === '')) {
+        errorMessage.style.display = 'block';
+        return false; // Validation failed
+    }
+
+    // Additional validation for selectField3 when 'IB', 'VCE', or 'HSC' is selected
+    if (selectField3.value === 'IB' && selectField5.value === '') {
+        errorMessage.style.display = 'block';
+        return false; // Validation failed for IB
+    } else if (selectField3.value === 'VCE' && selectField4.value === '') {
+        errorMessage.style.display = 'block';
+        return false; // Validation failed for VCE
+    } else if (selectField3.value === 'HSC' && selectField5.value === '') {
+        errorMessage.style.display = 'block';
+        return false; // Validation failed for HSC
+    }
+
+    return true; // Validation succeeded
+}
+
     
     function validateStep4() {
       // Reset error message
