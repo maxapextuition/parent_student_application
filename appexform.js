@@ -108,6 +108,7 @@
         selectContainer3.style.display = 'none';
         selectContainer4.style.display = 'none';
         selectContainer5.style.display = 'none';
+        selectContainer6.style.display = 'none';
          additionalDiv1.style.display = 'block';
         additionalDiv2.style.display = 'none';
         additionalDiv3.style.display = 'none';
@@ -124,6 +125,7 @@
         selectContainer3.style.display = 'none';
         selectContainer4.style.display = 'none';
         selectContainer5.style.display = 'none';
+        selectContainer6.style.display = 'none';
         additionalDiv1.style.display = 'block';
         additionalDiv2.style.display = 'none';
         additionalDiv3.style.display = 'none';
@@ -140,6 +142,7 @@
         selectContainer3.style.display = 'block';
         selectContainer4.style.display = 'none';
         selectContainer5.style.display = 'none';
+        selectContainer6.style.display = 'none';
         additionalDiv1.style.display = 'none';
         additionalDiv2.style.display = 'none';
         additionalDiv3.style.display = 'none';
@@ -158,16 +161,19 @@
     additionalDiv2.style.display = 'block';
     selectContainer5.style.display = 'none';
     additionalDiv3.style.display = 'none';
+    selectContainer6.style.display = 'none';
     additionalDiv4.style.display = 'none';  // Hide additionalDiv4 when VCE is selected
   } else if (selectField3.value === 'IB') {
     selectContainer5.style.display = 'block';
     additionalDiv3.style.display = 'block';
     selectContainer4.style.display = 'none';
     additionalDiv2.style.display = 'none';
+    selectContainer6.style.display = 'none';
     additionalDiv4.style.display = 'none';  // Hide additionalDiv4 when IB is selected
   } else if (selectField3.value === 'HSC') {
-    selectContainer5.style.display = 'block';
-    additionalDiv4.style.display = 'block';  // Show additionalDiv4 when HSC is selected
+    selectContainer5.style.display = 'none';
+    selectContainer6.style.display = 'block';
+    additionalDiv4.style.display = 'block';  
     selectContainer4.style.display = 'none';
     additionalDiv2.style.display = 'none';
     additionalDiv3.style.display = 'none';  // Hide additionalDiv3 when HSC is selected
@@ -175,6 +181,7 @@
     // Hide all containers if none of the above options are selected
     selectContainer4.style.display = 'none';
     selectContainer5.style.display = 'none';
+    selectContainer6.style.display = 'none';
     additionalDiv2.style.display = 'none';
     additionalDiv3.style.display = 'none';
     additionalDiv4.style.display = 'none';
