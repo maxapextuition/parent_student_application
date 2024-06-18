@@ -95,10 +95,13 @@
     const selectContainer3 = document.getElementById('selectContainer3');
     const selectContainer4 = document.getElementById('selectContainer4');
     const selectContainer5 = document.getElementById('selectContainer5');
+    const selectContainer6 = document.getElementById('selectContainer6');
+    const selectContainer7 = document.getElementById('selectContainer7');
     const additionalDiv1 = document.getElementById('additionalDiv1');
     const additionalDiv2 = document.getElementById('additionalDiv2');
     const additionalDiv3 = document.getElementById('additionalDiv3');
     const additionalDiv4 = document.getElementById('additionalDiv4');
+    const additionalDiv5 = document.getElementById('additionalDiv5');
     
     // Add event listeners to the radio options
     radioOption1.addEventListener('change', function() {
@@ -109,10 +112,12 @@
         selectContainer4.style.display = 'none';
         selectContainer5.style.display = 'none';
         selectContainer6.style.display = 'none';
+        selectContainer7.style.display = 'none';
          additionalDiv1.style.display = 'block';
         additionalDiv2.style.display = 'none';
         additionalDiv3.style.display = 'none';
         additionalDiv4.style.display = 'none';
+        additionalDiv5.style.display = 'none';
         selectField2.value = '';
         selectField3.value = '';
       }
@@ -126,10 +131,12 @@
         selectContainer4.style.display = 'none';
         selectContainer5.style.display = 'none';
         selectContainer6.style.display = 'none';
+        selectContainer7.style.display = 'none';
         additionalDiv1.style.display = 'block';
         additionalDiv2.style.display = 'none';
         additionalDiv3.style.display = 'none';
         additionalDiv4.style.display = 'none';
+        additionalDiv5.style.display = 'none';
         selectField1.value = '';
         selectField3.value = '';
       }
@@ -143,10 +150,12 @@
         selectContainer4.style.display = 'none';
         selectContainer5.style.display = 'none';
         selectContainer6.style.display = 'none';
+        selectContainer7.style.display = 'none';
         additionalDiv1.style.display = 'none';
         additionalDiv2.style.display = 'none';
         additionalDiv3.style.display = 'none';
         additionalDiv4.style.display = 'none';
+        additionalDiv5.style.display = 'none';
         selectField1.value = '';
         selectField2.value = '';
       
@@ -352,6 +361,7 @@
       var additionalDiv2 = document.getElementById('additionalDiv2');
       var additionalDiv3 = document.getElementById('additionalDiv3');
       var additionalDiv4 = document.getElementById('additionalDiv4');
+      var additionalDiv5 = document.getElementById('additionalDiv5');
     
       var checkboxes = [];
     
