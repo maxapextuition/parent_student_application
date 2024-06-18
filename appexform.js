@@ -101,6 +101,27 @@ const additionalDiv2 = document.getElementById('additionalDiv2');
 const additionalDiv3 = document.getElementById('additionalDiv3');
 const additionalDiv4 = document.getElementById('additionalDiv4');
 
+// Debugging log to check element references
+console.log('Elements: ', {
+  radioOption1,
+  radioOption2,
+  radioOption3,
+  selectField1,
+  selectField2,
+  selectField3,
+  selectContainer1,
+  selectContainer2,
+  selectContainer3,
+  selectContainer4,
+  selectContainer5,
+  selectContainer6,
+  selectContainerQCE,
+  additionalDiv1,
+  additionalDiv2,
+  additionalDiv3,
+  additionalDiv4
+});
+
 // Add event listeners to the radio options
 radioOption1.addEventListener('change', function() {
   if (radioOption1.checked) {
@@ -111,7 +132,7 @@ radioOption1.addEventListener('change', function() {
     selectContainer5.style.display = 'none';
     selectContainer6.style.display = 'none';
     selectContainerQCE.style.display = 'none';
-     additionalDiv1.style.display = 'block';
+    additionalDiv1.style.display = 'block';
     additionalDiv2.style.display = 'none';
     additionalDiv3.style.display = 'none';
     additionalDiv4.style.display = 'none';
@@ -153,55 +174,60 @@ radioOption3.addEventListener('change', function() {
     additionalDiv4.style.display = 'none';
     selectField1.value = '';
     selectField2.value = '';
-  
   }
 });
 
-
 // Add event listeners to the select fields
 selectField3.addEventListener('change', function() {
-if (selectField3.value === 'VCE') {
-selectContainer4.style.display = 'block';
-additionalDiv2.style.display = 'block';
-selectContainer5.style.display = 'none';
-additionalDiv3.style.display = 'none';
-selectContainer6.style.display = 'none';
-additionalDiv4.style.display = 'none';
-selectContainerQCE.style.display = 'none';
-} else if (selectField3.value === 'IB') {
-selectContainer5.style.display = 'block';
-additionalDiv3.style.display = 'block';
-selectContainer4.style.display = 'none';
-additionalDiv2.style.display = 'none';
-selectContainer6.style.display = 'none';
-additionalDiv4.style.display = 'none';
-selectContainerQCE.style.display = 'none';
-} else if (selectField3.value === 'HSC') {
-selectContainer5.style.display = 'none';
-selectContainer6.style.display = 'block';
-additionalDiv4.style.display = 'block';
-selectContainer4.style.display = 'none';
-additionalDiv2.style.display = 'none';
-additionalDiv3.style.display = 'none';
-selectContainerQCE.style.display = 'none';
-} else if (selectField3.value === 'QCE') {
-selectContainer5.style.display = 'none';
-selectContainer6.style.display = 'none';
-additionalDiv4.style.display = 'none';
-selectContainer4.style.display = 'none';
-additionalDiv2.style.display = 'none';
-additionalDiv3.style.display = 'none';
-selectContainerQCE.style.display = 'block';
-} else {
-// Hide all containers if none of the above options are selected
-selectContainer4.style.display = 'none';
-selectContainer5.style.display = 'none';
-selectContainer6.style.display = 'none';
-selectContainerQCE.style.display = 'none';
-additionalDiv2.style.display = 'none';
-additionalDiv3.style.display = 'none';
-additionalDiv4.style.display = 'none';
-}
+  console.log("selectField3 value changed to:", selectField3.value); // Debugging log
+  if (selectField3.value === 'VCE') {
+    selectContainer4.style.display = 'block';
+    additionalDiv2.style.display = 'block';
+    selectContainer5.style.display = 'none';
+    additionalDiv3.style.display = 'none';
+    selectContainer6.style.display = 'none';
+    additionalDiv4.style.display = 'none';
+    selectContainerQCE.style.display = 'none';
+    console.log("VCE selected, showing selectContainer4");
+  } else if (selectField3.value === 'IB') {
+    selectContainer5.style.display = 'block';
+    additionalDiv3.style.display = 'block';
+    selectContainer4.style.display = 'none';
+    additionalDiv2.style.display = 'none';
+    selectContainer6.style.display = 'none';
+    additionalDiv4.style.display = 'none';
+    selectContainerQCE.style.display = 'none';
+    console.log("IB selected, showing selectContainer5");
+  } else if (selectField3.value === 'HSC') {
+    selectContainer5.style.display = 'none';
+    selectContainer6.style.display = 'block';
+    additionalDiv4.style.display = 'block';
+    selectContainer4.style.display = 'none';
+    additionalDiv2.style.display = 'none';
+    additionalDiv3.style.display = 'none';
+    selectContainerQCE.style.display = 'none';
+    console.log("HSC selected, showing selectContainer6");
+  } else if (selectField3.value === 'QCE') {
+    selectContainer5.style.display = 'none';
+    selectContainer6.style.display = 'none';
+    additionalDiv4.style.display = 'none';
+    selectContainer4.style.display = 'none';
+    additionalDiv2.style.display = 'none';
+    additionalDiv3.style.display = 'none';
+    selectContainerQCE.style.display = 'block';
+    console.log("QCE selected, showing selectContainerQCE");
+    console.log("selectContainerQCE style:", selectContainerQCE.style.display); // Debugging log
+  } else {
+    // Hide all containers if none of the above options are selected
+    selectContainer4.style.display = 'none';
+    selectContainer5.style.display = 'none';
+    selectContainer6.style.display = 'none';
+    selectContainerQCE.style.display = 'none';
+    additionalDiv2.style.display = 'none';
+    additionalDiv3.style.display = 'none';
+    additionalDiv4.style.display = 'none';
+    console.log("No valid selection, hiding all containers");
+  }
 });
 
 javascript
