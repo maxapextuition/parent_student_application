@@ -94,6 +94,8 @@ const selectContainer2 = document.getElementById('selectContainer2');
 const selectContainer3 = document.getElementById('selectContainer3');
 const selectContainer4 = document.getElementById('selectContainer4');
 const selectContainer5 = document.getElementById('selectContainer5');
+const selectContainer6 = document.getElementById('selectContainer6');
+const selectContainerQCE = document.getElementById('selectContainerQCE');
 const additionalDiv1 = document.getElementById('additionalDiv1');
 const additionalDiv2 = document.getElementById('additionalDiv2');
 const additionalDiv3 = document.getElementById('additionalDiv3');
@@ -108,6 +110,7 @@ radioOption1.addEventListener('change', function() {
     selectContainer4.style.display = 'none';
     selectContainer5.style.display = 'none';
     selectContainer6.style.display = 'none';
+    selectContainerQCE.style.display = 'none';
      additionalDiv1.style.display = 'block';
     additionalDiv2.style.display = 'none';
     additionalDiv3.style.display = 'none';
@@ -125,6 +128,7 @@ radioOption2.addEventListener('change', function() {
     selectContainer4.style.display = 'none';
     selectContainer5.style.display = 'none';
     selectContainer6.style.display = 'none';
+    selectContainerQCE.style.display = 'none';
     additionalDiv1.style.display = 'block';
     additionalDiv2.style.display = 'none';
     additionalDiv3.style.display = 'none';
@@ -142,6 +146,7 @@ radioOption3.addEventListener('change', function() {
     selectContainer4.style.display = 'none';
     selectContainer5.style.display = 'none';
     selectContainer6.style.display = 'none';
+    selectContainerQCE.style.display = 'none';
     additionalDiv1.style.display = 'none';
     additionalDiv2.style.display = 'none';
     additionalDiv3.style.display = 'none';
@@ -161,26 +166,38 @@ additionalDiv2.style.display = 'block';
 selectContainer5.style.display = 'none';
 additionalDiv3.style.display = 'none';
 selectContainer6.style.display = 'none';
-additionalDiv4.style.display = 'none'; // Hide additionalDiv4 when VCE is selected
+additionalDiv4.style.display = 'none';
+selectContainerQCE.style.display = 'none';
 } else if (selectField3.value === 'IB') {
 selectContainer5.style.display = 'block';
 additionalDiv3.style.display = 'block';
 selectContainer4.style.display = 'none';
 additionalDiv2.style.display = 'none';
 selectContainer6.style.display = 'none';
-additionalDiv4.style.display = 'none'; // Hide additionalDiv4 when IB is selected
+additionalDiv4.style.display = 'none';
+selectContainerQCE.style.display = 'none';
 } else if (selectField3.value === 'HSC') {
 selectContainer5.style.display = 'none';
 selectContainer6.style.display = 'block';
 additionalDiv4.style.display = 'block';
 selectContainer4.style.display = 'none';
 additionalDiv2.style.display = 'none';
-additionalDiv3.style.display = 'none'; // Hide additionalDiv3 when HSC is selected
+additionalDiv3.style.display = 'none';
+selectContainerQCE.style.display = 'none';
+} else if (selectField3.value === 'QCE') {
+selectContainer5.style.display = 'none';
+selectContainer6.style.display = 'none';
+additionalDiv4.style.display = 'none';
+selectContainer4.style.display = 'none';
+additionalDiv2.style.display = 'none';
+additionalDiv3.style.display = 'none';
+selectContainerQCE.style.display = 'block';
 } else {
 // Hide all containers if none of the above options are selected
 selectContainer4.style.display = 'none';
 selectContainer5.style.display = 'none';
 selectContainer6.style.display = 'none';
+selectContainerQCE.style.display = 'none';
 additionalDiv2.style.display = 'none';
 additionalDiv3.style.display = 'none';
 additionalDiv4.style.display = 'none';
