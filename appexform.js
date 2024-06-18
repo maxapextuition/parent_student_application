@@ -162,53 +162,62 @@ radioOption3.addEventListener('change', function() {
 
 // Add event listeners to the select fields
 selectField3.addEventListener('change', function() {
-if (selectField3.value === 'VCE') {
-selectContainer4.style.display = 'block';
-additionalDiv2.style.display = 'block';
-selectContainer5.style.display = 'none';
-additionalDiv3.style.display = 'none';
-selectContainer6.style.display = 'none';
-selectContainer7.style.display = 'none';
-additionalDiv4.style.display = 'none'; // Hide additionalDiv4 when VCE is selected
-additionalDiv5.style.display = 'none';
-} else if (selectField3.value === 'IB') {
-selectContainer5.style.display = 'block';
-additionalDiv3.style.display = 'block';
-selectContainer4.style.display = 'none';
-additionalDiv2.style.display = 'none';
-selectContainer6.style.display = 'none';
-selectContainer7.style.display = 'none';
-additionalDiv4.style.display = 'none'; // Hide additionalDiv4 when IB is selected
-additionalDiv5.style.display = 'none';
-} else if (selectField3.value === 'HSC') {
-selectContainer5.style.display = 'none';
-selectContainer6.style.display = 'block';
-selectContainer7.style.display = 'none';
-additionalDiv4.style.display = 'block';
-additionalDiv5.style.display = 'none';
-selectContainer4.style.display = 'none';
-additionalDiv2.style.display = 'none';
-additionalDiv3.style.display = 'none'; // Hide additionalDiv3 when HSC is selected
-} else if (selectField3.value === 'QCE') {
-selectContainer5.style.display = 'none';
-selectContainer6.style.display = 'none';
-selectContainer7.style.display = 'block';
-additionalDiv4.style.display = 'none';
-additionalDiv5.style.display = 'block';
-selectContainer4.style.display = 'none';
-additionalDiv2.style.display = 'none';
-additionalDiv3.style.display = 'none';
-} else {
-// Hide all containers if none of the above options are selected
-selectContainer4.style.display = 'none';
-selectContainer5.style.display = 'none';
-selectContainer6.style.display = 'none';
-selectContainer7.style.display = 'none';
-additionalDiv2.style.display = 'none';
-additionalDiv3.style.display = 'none';
-additionalDiv4.style.display = 'none';
-additionalDiv5.style.display = 'none';
-}
+  console.log("selectField3 changed to: ", selectField3.value); // Debug log
+
+  if (selectField3.value === 'VCE') {
+    selectContainer4.style.display = 'block';
+    additionalDiv2.style.display = 'block';
+    selectContainer5.style.display = 'none';
+    additionalDiv3.style.display = 'none';
+    selectContainer6.style.display = 'none';
+    selectContainer7.style.display = 'none';
+    additionalDiv4.style.display = 'none'; // Hide additionalDiv4 when VCE is selected
+    additionalDiv5.style.display = 'none';
+    console.log("VCE selected");
+  } else if (selectField3.value === 'IB') {
+    selectContainer5.style.display = 'block';
+    additionalDiv3.style.display = 'block';
+    selectContainer4.style.display = 'none';
+    additionalDiv2.style.display = 'none';
+    selectContainer6.style.display = 'none';
+    selectContainer7.style.display = 'none';
+    additionalDiv4.style.display = 'none'; // Hide additionalDiv4 when IB is selected
+    additionalDiv5.style.display = 'none';
+    console.log("IB selected");
+  } else if (selectField3.value === 'HSC') {
+    selectContainer5.style.display = 'none';
+    selectContainer6.style.display = 'block';
+    selectContainer7.style.display = 'none';
+    additionalDiv4.style.display = 'block';
+    additionalDiv5.style.display = 'none';
+    selectContainer4.style.display = 'none';
+    additionalDiv2.style.display = 'none';
+    additionalDiv3.style.display = 'none'; // Hide additionalDiv3 when HSC is selected
+    console.log("HSC selected");
+  } else if (selectField3.value === 'QCE') {
+    console.log("QCE selected"); // Debug log
+    selectContainer5.style.display = 'none';
+    selectContainer6.style.display = 'none';
+    selectContainer7.style.display = 'block';
+    additionalDiv4.style.display = 'none';
+    additionalDiv5.style.display = 'block';
+    selectContainer4.style.display = 'none';
+    additionalDiv2.style.display = 'none';
+    additionalDiv3.style.display = 'none';
+    console.log("selectContainer7.style.display:", selectContainer7.style.display);
+    console.log("additionalDiv5.style.display:", additionalDiv5.style.display);
+  } else {
+    // Hide all containers if none of the above options are selected
+    selectContainer4.style.display = 'none';
+    selectContainer5.style.display = 'none';
+    selectContainer6.style.display = 'none';
+    selectContainer7.style.display = 'none';
+    additionalDiv2.style.display = 'none';
+    additionalDiv3.style.display = 'none';
+    additionalDiv4.style.display = 'none';
+    additionalDiv5.style.display = 'none';
+    console.log("None selected");
+  }
 });
 
 javascript
