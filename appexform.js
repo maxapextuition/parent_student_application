@@ -162,29 +162,46 @@
     selectContainer5.style.display = 'none';
     additionalDiv3.style.display = 'none';
     selectContainer6.style.display = 'none';
-    additionalDiv4.style.display = 'none';  // Hide additionalDiv4 when VCE is selected
+    additionalDiv4.style.display = 'none'; 
+    selectContainer7.style.display = 'none';
+    additionalDiv5.style.display = 'none'; 
   } else if (selectField3.value === 'IB') {
     selectContainer5.style.display = 'block';
     additionalDiv3.style.display = 'block';
     selectContainer4.style.display = 'none';
     additionalDiv2.style.display = 'none';
     selectContainer6.style.display = 'none';
-    additionalDiv4.style.display = 'none';  // Hide additionalDiv4 when IB is selected
+    additionalDiv4.style.display = 'none';
+    selectContainer7.style.display = 'none';
+    additionalDiv5.style.display = 'none';
   } else if (selectField3.value === 'HSC') {
     selectContainer5.style.display = 'none';
     selectContainer6.style.display = 'block';
     additionalDiv4.style.display = 'block';  
     selectContainer4.style.display = 'none';
     additionalDiv2.style.display = 'none';
-    additionalDiv3.style.display = 'none';  // Hide additionalDiv3 when HSC is selected
+    additionalDiv3.style.display = 'none';
+    selectContainer7.style.display = 'none';
+    additionalDiv5.style.display = 'none'; 
+  } else if (selectField3.value === 'QCE') {
+    selectContainer5.style.display = 'none';
+    selectContainer6.style.display = 'none';
+    additionalDiv4.style.display = 'none';  
+    selectContainer4.style.display = 'none';
+    additionalDiv2.style.display = 'none';
+    additionalDiv3.style.display = 'none';
+    selectContainer7.style.display = 'block';
+    additionalDiv5.style.display = 'block'; 
   } else {
     // Hide all containers if none of the above options are selected
     selectContainer4.style.display = 'none';
     selectContainer5.style.display = 'none';
     selectContainer6.style.display = 'none';
+    selectContainer7.style.display = 'none';
     additionalDiv2.style.display = 'none';
     additionalDiv3.style.display = 'none';
     additionalDiv4.style.display = 'none';
+    additionalDiv5.style.display = 'none';
   }
 });
     
@@ -316,6 +333,9 @@
     } else if (selectField3.value === 'HSC' && selectField6.value === '') {
         errorMessage.style.display = 'block';
         return false; // Validation failed for HSC
+    } else if (selectField3.value === 'QCE' && selectField7.value === '') {
+        errorMessage.style.display = 'block';
+        return false; // Validation failed for HSC
     }
 
     return true; // Validation succeeded
@@ -344,7 +364,8 @@
         checkboxes = additionalDiv3.querySelectorAll('input[type="checkbox"]');
       } else if (additionalDiv4.style.display === 'block') {
         checkboxes = additionalDiv4.querySelectorAll('input[type="checkbox"]');
-      }
+      } else if (additionalDiv5.style.display === 'block') {
+        checkboxes = additionalDiv5.querySelectorAll('input[type="checkbox"]');
     
       // Check if at least one checkbox option is selected
       var isChecked = Array.from(checkboxes).some(function (checkbox) {
