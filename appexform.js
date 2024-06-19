@@ -88,7 +88,6 @@
     const selectField1 = document.getElementById('selectField1');
     const selectField2 = document.getElementById('selectField2');
     const selectField3 = document.getElementById('selectField3');
-    
     const selectContainer1 = document.getElementById('selectContainer1');
     const selectContainer2 = document.getElementById('selectContainer2');
     const selectContainer3 = document.getElementById('selectContainer3');
