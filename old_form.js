@@ -99,6 +99,7 @@ var currentStep = 0;
     const additionalDiv2 = document.getElementById('additionalDiv2');
     const additionalDiv3 = document.getElementById('additionalDiv3');
     const additionalDiv4 = document.getElementById('additionalDiv4');
+    const waceSubjects = document.getElementById('waceSubjects');
     
     // Add event listeners to the radio options
     radioOption1.addEventListener('change', function() {
@@ -114,6 +115,7 @@ var currentStep = 0;
         additionalDiv2.style.display = 'none';
         additionalDiv3.style.display = 'none';
         additionalDiv4.style.display = 'none';
+        waceSubjects.style.display = 'none';
         selectField2.value = '';
         selectField3.value = '';
       }
@@ -132,6 +134,7 @@ var currentStep = 0;
         additionalDiv2.style.display = 'none';
         additionalDiv3.style.display = 'none';
         additionalDiv4.style.display = 'none';
+        waceSubjects.style.display = 'none';
         selectField1.value = '';
         selectField3.value = '';
       }
@@ -150,6 +153,7 @@ var currentStep = 0;
         additionalDiv2.style.display = 'none';
         additionalDiv3.style.display = 'none';
         additionalDiv4.style.display = 'none';
+        waceSubjects.style.display = 'none';
         selectField1.value = '';
         selectField2.value = '';
       
@@ -167,6 +171,7 @@ var currentStep = 0;
     selectContainer6.style.display = 'none';
     additionalDiv4.style.display = 'none';  // Hide additionalDiv4 when VCE is selected
     selectContainerWACE.style.display = 'none';
+    waceSubjects.style.display = 'none';
   } else if (selectField3.value === 'IB') {
     selectContainer5.style.display = 'block';
     additionalDiv3.style.display = 'block';
@@ -175,6 +180,7 @@ var currentStep = 0;
     selectContainer6.style.display = 'none';
     additionalDiv4.style.display = 'none';  // Hide additionalDiv4 when IB is selected
     selectContainerWACE.style.display = 'none';
+    waceSubjects.style.display = 'none';
   } else if (selectField3.value === 'HSC') {
     selectContainer5.style.display = 'none';
     selectContainer6.style.display = 'block';
@@ -183,6 +189,7 @@ var currentStep = 0;
     additionalDiv2.style.display = 'none';
     additionalDiv3.style.display = 'none';  // Hide additionalDiv3 when HSC is selected
     selectContainerWACE.style.display = 'none';
+    waceSubjects.style.display = 'none';
    } else if (selectField3.value === 'WACE') {
     selectContainer5.style.display = 'none';
     selectContainer6.style.display = 'none';
@@ -191,6 +198,7 @@ var currentStep = 0;
     additionalDiv2.style.display = 'none';
     additionalDiv3.style.display = 'none';  // Hide additionalDiv3 when HSC is selected
     selectContainerWACE.style.display = 'block';
+    waceSubjects.style.display = 'block';
   } else {
     // Hide all containers if none of the above options are selected
     selectContainer4.style.display = 'none';
@@ -200,6 +208,7 @@ var currentStep = 0;
     additionalDiv2.style.display = 'none';
     additionalDiv3.style.display = 'none';
     additionalDiv4.style.display = 'none';
+    waceSubjects.style.display = 'none';
   }
 });
     
@@ -331,6 +340,9 @@ var currentStep = 0;
     } else if (selectField3.value === 'HSC' && selectField6.value === '') {
         errorMessage.style.display = 'block';
         return false; // Validation failed for HSC
+    } else if (selectField3.value === 'WACE' && selectFieldWACE.value === '') {
+        errorMessage.style.display = 'block';
+        return false; // Validation failed for HSC
     }
 
     return true; // Validation succeeded
@@ -347,6 +359,7 @@ var currentStep = 0;
       var additionalDiv2 = document.getElementById('additionalDiv2');
       var additionalDiv3 = document.getElementById('additionalDiv3');
       var additionalDiv4 = document.getElementById('additionalDiv4');
+      var waceSubjects = document.getElementById('waceSubjects');
     
       var checkboxes = [];
     
@@ -359,7 +372,10 @@ var currentStep = 0;
         checkboxes = additionalDiv3.querySelectorAll('input[type="checkbox"]');
       } else if (additionalDiv4.style.display === 'block') {
         checkboxes = additionalDiv4.querySelectorAll('input[type="checkbox"]');
+      } else if (waceSubjects.style.display === 'block') {
+        checkboxes = waceSubjects.querySelectorAll('input[type="checkbox"]');
       }
+        
     
       // Check if at least one checkbox option is selected
       var isChecked = Array.from(checkboxes).some(function (checkbox) {
