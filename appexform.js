@@ -80,84 +80,139 @@ else if (currentStep === 5) {
 showStep(currentStep);
 
 
+document.addEventListener('DOMContentLoaded', function() {
+  const radioOption1 = document.getElementById('radioOption1');
+  const radioOption2 = document.getElementById('radioOption2');
+  const radioOption3 = document.getElementById('radioOption3');
+  const selectField1 = document.getElementById('selectField1');
+  const selectField2 = document.getElementById('selectField2');
+  const selectField3 = document.getElementById('selectField3');
+  const selectContainer1 = document.getElementById('selectContainer1');
+  const selectContainer2 = document.getElementById('selectContainer2');
+  const selectContainer3 = document.getElementById('selectContainer3');
+  const selectContainer4 = document.getElementById('selectContainer4');
+  const selectContainer5 = document.getElementById('selectContainer5');
+  const selectContainerWACE = document.getElementById('selectContainerWACE');
+  const additionalDiv1 = document.getElementById('additionalDiv1');
+  const additionalDiv2 = document.getElementById('additionalDiv2');
+  const additionalDiv3 = document.getElementById('additionalDiv3');
+  const additionalDiv4 = document.getElementById('additionalDiv4');
+  const waceSubjects = document.getElementById('waceSubjects');
 
-// Get the relevant radio options and select fields
-const radioOption1 = document.getElementById('radioOption1');
-const radioOption2 = document.getElementById('radioOption2');
-const radioOption3 = document.getElementById('radioOption3');
-const selectField1 = document.getElementById('selectField1');
-const selectField2 = document.getElementById('selectField2');
-const selectField3 = document.getElementById('selectField3');
-const selectContainer1 = document.getElementById('selectContainer1');
-const selectContainer2 = document.getElementById('selectContainer2');
-const selectContainer3 = document.getElementById('selectContainer3');
-const selectContainer4 = document.getElementById('selectContainer4');
-const selectContainer5 = document.getElementById('selectContainer5');
-const selectContainerWACE = document.getElementById('selectContainerWACE');
-const additionalDiv1 = document.getElementById('additionalDiv1');
-const additionalDiv2 = document.getElementById('additionalDiv2');
-const additionalDiv3 = document.getElementById('additionalDiv3');
-const additionalDiv4 = document.getElementById('additionalDiv4');
-const waceSubjects = document.getElementById('waceSubjects');
+  radioOption1.addEventListener('change', function() {
+    if (radioOption1.checked) {
+      selectContainer1.style.setProperty('display', 'block', 'important');
+      selectContainer2.style.setProperty('display', 'none', 'important');
+      selectContainer3.style.setProperty('display', 'none', 'important');
+      selectContainer4.style.setProperty('display', 'none', 'important');
+      selectContainer5.style.setProperty('display', 'none', 'important');
+      selectContainerWACE.style.setProperty('display', 'none', 'important');
+      additionalDiv1.style.setProperty('display', 'block', 'important');
+      additionalDiv2.style.setProperty('display', 'none', 'important');
+      additionalDiv3.style.setProperty('display', 'none', 'important');
+      additionalDiv4.style.setProperty('display', 'none', 'important');
+      waceSubjects.style.setProperty('display', 'none', 'important');
+      selectField2.value = '';
+      selectField3.value = '';
+    }
+  });
 
-// Add event listeners to the radio options
-radioOption1.addEventListener('change', function() {
-  if (radioOption1.checked) {
-    selectContainer1.style.display = 'block';
-    selectContainer2.style.display = 'none';
-    selectContainer3.style.display = 'none';
-    selectContainer4.style.display = 'none';
-    selectContainer5.style.display = 'none';
-    selectContainerWACE.style.display = 'none';
-    selectContainer6.style.display = 'none';
-     additionalDiv1.style.display = 'block';
-    additionalDiv2.style.display = 'none';
-    additionalDiv3.style.display = 'none';
-    additionalDiv4.style.display = 'none';
-    waceSubjects.style.display = 'none';
-    selectField2.value = '';
-    selectField3.value = '';
-  }
+  radioOption2.addEventListener('change', function() {
+    if (radioOption2.checked) {
+      selectContainer1.style.setProperty('display', 'none', 'important');
+      selectContainer2.style.setProperty('display', 'block', 'important');
+      selectContainer3.style.setProperty('display', 'none', 'important');
+      selectContainer4.style.setProperty('display', 'none', 'important');
+      selectContainer5.style.setProperty('display', 'none', 'important');
+      selectContainer6.style.setProperty('display', 'none', 'important');
+      selectContainerWACE.style.setProperty('display', 'none', 'important');
+      additionalDiv1.style.setProperty('display', 'block', 'important');
+      additionalDiv2.style.setProperty('display', 'none', 'important');
+      additionalDiv3.style.setProperty('display', 'none', 'important');
+      additionalDiv4.style.setProperty('display', 'none', 'important');
+      waceSubjects.style.setProperty('display', 'none', 'important');
+      selectField1.value = '';
+      selectField3.value = '';
+    }
+  });
+
+  radioOption3.addEventListener('change', function() {
+    if (radioOption3.checked) {
+      selectContainer1.style.setProperty('display', 'none', 'important');
+      selectContainer2.style.setProperty('display', 'none', 'important');
+      selectContainer3.style.setProperty('display', 'block', 'important');
+      selectContainer4.style.setProperty('display', 'none', 'important');
+      selectContainer5.style.setProperty('display', 'none', 'important');
+      selectContainer6.style.setProperty('display', 'none', 'important');
+      selectContainerWACE.style.setProperty('display', 'none', 'important');
+      additionalDiv1.style.setProperty('display', 'none', 'important');
+      additionalDiv2.style.setProperty('display', 'none', 'important');
+      additionalDiv3.style.setProperty('display', 'none', 'important');
+      additionalDiv4.style.setProperty('display', 'none', 'important');
+      waceSubjects.style.setProperty('display', 'none', 'important');
+      selectField1.value = '';
+      selectField2.value = '';
+    }
+  });
+
+  selectField3.addEventListener('change', function() {
+    console.log('Selected value:', selectField3.value); // Log the selected value
+    if (selectField3.value === 'VCE') {
+      console.log('VCE selected');
+      selectContainer4.style.setProperty('display', 'block', 'important');
+      additionalDiv2.style.setProperty('display', 'block', 'important');
+      selectContainer5.style.setProperty('display', 'none', 'important');
+      additionalDiv3.style.setProperty('display', 'none', 'important');
+      selectContainer6.style.setProperty('display', 'none', 'important');
+      additionalDiv4.style.setProperty('display', 'none', 'important');
+      selectContainerWACE.style.setProperty('display', 'none', 'important');
+      waceSubjects.style.setProperty('display', 'none', 'important');
+    } else if (selectField3.value === 'IB') {
+      console.log('IB selected');
+      selectContainer5.style.setProperty('display', 'block', 'important');
+      additionalDiv3.style.setProperty('display', 'block', 'important');
+      selectContainer4.style.setProperty('display', 'none', 'important');
+      additionalDiv2.style.setProperty('display', 'none', 'important');
+      selectContainer6.style.setProperty('display', 'none', 'important');
+      additionalDiv4.style.setProperty('display', 'none', 'important');
+      selectContainerWACE.style.setProperty('display', 'none', 'important');
+      waceSubjects.style.setProperty('display', 'none', 'important');
+    } else if (selectField3.value === 'HSC') {
+      console.log('HSC selected');
+      selectContainer5.style.setProperty('display', 'none', 'important');
+      selectContainer6.style.setProperty('display', 'block', 'important');
+      additionalDiv4.style.setProperty('display', 'block', 'important');
+      selectContainer4.style.setProperty('display', 'none', 'important');
+      additionalDiv2.style.setProperty('display', 'none', 'important');
+      additionalDiv3.style.setProperty('display', 'none', 'important');
+      selectContainerWACE.style.setProperty('display', 'none', 'important');
+      waceSubjects.style.setProperty('display', 'none', 'important');
+    } else if (selectField3.value === 'WACE') {
+      console.log('WACE selected');
+      selectContainer5.style.setProperty('display', 'none', 'important');
+      selectContainer6.style.setProperty('display', 'none', 'important');
+      additionalDiv4.style.setProperty('display', 'none', 'important');
+      selectContainer4.style.setProperty('display', 'none', 'important');
+      additionalDiv2.style.setProperty('display', 'none', 'important');
+      additionalDiv3.style.setProperty('display', 'none', 'important');
+      selectContainerWACE.style.setProperty('display', 'block', 'important');
+      waceSubjects.style.setProperty('display', 'block', 'important');
+      console.log('Display set to block for selectContainerWACE and waceSubjects');
+    } else {
+      console.log('No match found');
+      // Hide all containers if none of the above options are selected
+      selectContainer4.style.setProperty('display', 'none', 'important');
+      selectContainer5.style.setProperty('display', 'none', 'important');
+      selectContainer6.style.setProperty('display', 'none', 'important');
+      selectContainerWACE.style.setProperty('display', 'none', 'important');
+      additionalDiv2.style.setProperty('display', 'none', 'important');
+      additionalDiv3.style.setProperty('display', 'none', 'important');
+      additionalDiv4.style.setProperty('display', 'none', 'important');
+      waceSubjects.style.setProperty('display', 'none', 'important');
+    }
+  });
 });
 
-radioOption2.addEventListener('change', function() {
-  if (radioOption2.checked) {
-    selectContainer1.style.display = 'none';
-    selectContainer2.style.display = 'block';
-    selectContainer3.style.display = 'none';
-    selectContainer4.style.display = 'none';
-    selectContainer5.style.display = 'none';
-    selectContainer6.style.display = 'none';
-    selectContainerWACE.style.display = 'none';
-    additionalDiv1.style.display = 'block';
-    additionalDiv2.style.display = 'none';
-    additionalDiv3.style.display = 'none';
-    additionalDiv4.style.display = 'none';
-    waceSubjects.style.display = 'none';
-    selectField1.value = '';
-    selectField3.value = '';
-  }
-});
-
-radioOption3.addEventListener('change', function() {
-  if (radioOption3.checked) {
-    selectContainer1.style.display = 'none';
-    selectContainer2.style.display = 'none';
-    selectContainer3.style.display = 'block';
-    selectContainer4.style.display = 'none';
-    selectContainer5.style.display = 'none';
-    selectContainer6.style.display = 'none';
-    selectContainerWACE.style.display = 'none';
-    additionalDiv1.style.display = 'none';
-    additionalDiv2.style.display = 'none';
-    additionalDiv3.style.display = 'none';
-    additionalDiv4.style.display = 'none';
-    waceSubjects.style.display = 'none';
-    selectField1.value = '';
-    selectField2.value = '';
-  
-  }
-});
 
 
 // Add event listeners to the select fields
