@@ -1,4 +1,4 @@
-.var currentStep = 0;
+var currentStep = 0;
         var steps = document.getElementsByClassName('step');
         var progressBar = document.querySelector('.progres-bar');
         
