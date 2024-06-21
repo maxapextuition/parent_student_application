@@ -274,7 +274,7 @@ selectField3.addEventListener('change', function() {
 });
 
 inPerson.addEventListener('change', function() {
-  var shouldShowWarning = inPerson.checked && ['VCE', 'IB', 'HSC', 'WACE', 'QCE', 'SACE'].includes(selectField3.value);
+  var shouldShowWarning = inPerson.checked && ['WACE', 'QCE', 'SACE'].includes(selectField3.value);
   onlinewarning.style.display = shouldShowWarning ? 'block' : 'none';
 });
 
