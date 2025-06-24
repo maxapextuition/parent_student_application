@@ -415,46 +415,63 @@ inPerson.addEventListener('change', function() {
     }
 
     function validateStep3() {
-    // Reset error message
-    var errorMessage = document.getElementById('step3ErrorMessage');
-    errorMessage.style.display = 'none';
+  // 1) Reset and hide any previous error
+  var errorMessage = document.getElementById('step3ErrorMessage');
+  errorMessage.style.display = 'none';
 
-    // Check if at least one radio option is selected in Step 2
-    if (!radioOption1.checked && !radioOption2.checked && !radioOption3.checked && !radioOption4.checked) {
-        errorMessage.style.display = 'block';
-        return false; // Validation failed
-    }
+  // 2) Make sure at least one radio is selected
+  if (
+    !radioOption1.checked &&
+    !radioOption2.checked &&
+    !radioOption3.checked &&
+    !radioOption4.checked
+  ) {
+    errorMessage.style.display = 'block';
+    return false;
+  }
 
-    // Check if the corresponding select field is empty for the checked radio option
-    if ((radioOption1.checked && selectField1.value === '') ||
-        (radioOption2.checked && selectField2.value === '') ||
-        (radioOption3.checked && selectField3.value === '') {
-        errorMessage.style.display = 'block';
-        return false; // Validation failed
-    }
+  // 3) If Option 4 is checked, we skip all the select-validation
+  if (radioOption4.checked) {
+    return true;
+  }
 
-    // Additional validation for selectField3 when 'IB', 'VCE', or 'HSC' is selected
-    if (selectField3.value === 'IB' && selectField5.value === '') {
-        errorMessage.style.display = 'block';
-        return false; // Validation failed for IB
-    } else if (selectField3.value === 'VCE' && selectField4.value === '') {
-        errorMessage.style.display = 'block';
-        return false; // Validation failed for VCE
-    } else if (selectField3.value === 'HSC' && selectField6.value === '') {
-        errorMessage.style.display = 'block';
-        return false; // Validation failed for HSC
-    } else if (selectField3.value === 'WACE' && selectFieldWACE.value === '') {
-        errorMessage.style.display = 'block';
-        return false; // Validation failed for WACE
-    } else if (selectField3.value === 'QCE' && selectFieldQCE.value === '') {
-        errorMessage.style.display = 'block';
-        return false; // Validation failed for QCE
-    } else if (selectField3.value === 'SACE' && selectFieldSACE.value === '') {
-        errorMessage.style.display = 'block';
-        return false; // Validation failed for SACE
-    }
+  // 4) For Options 1–3, ensure the corresponding select has a value
+  if (
+       (radioOption1.checked && selectField1.value === '') ||
+       (radioOption2.checked && selectField2.value === '') ||
+       (radioOption3.checked && selectField3.value === '')
+     ) {
+    errorMessage.style.display = 'block';
+    return false;
+  }
 
-    return true; // Validation succeeded
+  // 5) Now handle the curriculum dropdown on selectField3
+  //    – IB uses selectField5
+  //    – VCE uses selectField4
+  //    – HSC uses selectField6
+  //    – WACE/QCE/SACE each have their own selectField
+  if (selectField3.value === 'IB' && selectField5.value === '') {
+    errorMessage.style.display = 'block';
+    return false;
+  } else if (selectField3.value === 'VCE' && selectField4.value === '') {
+    errorMessage.style.display = 'block';
+    return false;
+  } else if (selectField3.value === 'HSC' && selectField6.value === '') {
+    errorMessage.style.display = 'block';
+    return false;
+  } else if (selectField3.value === 'WACE' && selectFieldWACE.value === '') {
+    errorMessage.style.display = 'block';
+    return false;
+  } else if (selectField3.value === 'QCE' && selectFieldQCE.value === '') {
+    errorMessage.style.display = 'block';
+    return false;
+  } else if (selectField3.value === 'SACE' && selectFieldSACE.value === '') {
+    errorMessage.style.display = 'block';
+    return false;
+  }
+
+  // 6) Everything passed
+  return true;
 }
 
 
