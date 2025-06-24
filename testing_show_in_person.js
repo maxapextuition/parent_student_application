@@ -93,6 +93,8 @@ const saceSubjects = document.getElementById('saceSubjects');
 const waceSubjects = document.getElementById('waceSubjects');
 const onlinewarning = document.getElementById('online-warning');
 const inPerson = document.getElementById('In-Person');
+const radioOption4 = document.getElementById('radioOption4');
+const otherSubjects = document.getElementById('otherSubjects');
 
 // Add event listeners to the radio options
 radioOption1.addEventListener('change', function() {
@@ -113,6 +115,7 @@ radioOption1.addEventListener('change', function() {
     waceSubjects.style.display = 'none';
     qceSubjects.style.display = 'none';
     saceSubjects.style.display = 'none';
+    otherSubjects.style.display = 'none';
     onlinewarning.style.display = 'none';
     selectField2.value = '';
     selectField3.value = '';
@@ -137,6 +140,7 @@ radioOption2.addEventListener('change', function() {
     waceSubjects.style.display = 'none';
     qceSubjects.style.display = 'none';
     saceSubjects.style.display = 'none';
+    otherSubjects.style.display = 'none';
     onlinewarning.style.display = 'none';
     selectField1.value = '';
     selectField3.value = '';
@@ -161,6 +165,32 @@ radioOption3.addEventListener('change', function() {
     waceSubjects.style.display = 'none';
     qceSubjects.style.display = 'none';
     saceSubjects.style.display = 'none';
+    otherSubjects.style.display = 'none';
+    onlinewarning.style.display = 'none';
+    selectField1.value = '';
+    selectField2.value = '';
+  }
+});
+
+radioOption4.addEventListener('change', function() {
+  if (radioOption4.checked) {
+    selectContainer1.style.display = 'none';
+    selectContainer2.style.display = 'none';
+    selectContainer3.style.display = 'none';
+    selectContainer4.style.display = 'none';
+    selectContainer5.style.display = 'none';
+    selectContainer6.style.display = 'none';
+    selectContainerWACE.style.display = 'none';
+    selectContainerQCE.style.display = 'none';
+    selectContainerSACE.style.display = 'none';
+    additionalDiv1.style.display = 'none';
+    additionalDiv2.style.display = 'none';
+    additionalDiv3.style.display = 'none';
+    additionalDiv4.style.display = 'none';
+    waceSubjects.style.display = 'none';
+    qceSubjects.style.display = 'none';
+    saceSubjects.style.display = 'none';
+    otherSubjects.style.display = 'block';
     onlinewarning.style.display = 'none';
     selectField1.value = '';
     selectField2.value = '';
@@ -184,6 +214,7 @@ selectField3.addEventListener('change', function() {
     qceSubjects.style.display = 'none';
     selectContainerSACE.style.display = 'none';
     saceSubjects.style.display = 'none';
+    otherSubjects.style.display = 'none';
     onlinewarning.style.display = shouldShowWarning ? 'block' : 'none';
   } else if (selectField3.value === 'IB') {
     selectContainer5.style.display = 'block';
@@ -198,6 +229,7 @@ selectField3.addEventListener('change', function() {
     qceSubjects.style.display = 'none';
     selectContainerSACE.style.display = 'none';
     saceSubjects.style.display = 'none';
+    otherSubjects.style.display = 'none';
     onlinewarning.style.display = shouldShowWarning ? 'block' : 'none';
   } else if (selectField3.value === 'HSC') {
     selectContainer5.style.display = 'none';
@@ -212,6 +244,7 @@ selectField3.addEventListener('change', function() {
     qceSubjects.style.display = 'none';
     selectContainerSACE.style.display = 'none';
     saceSubjects.style.display = 'none';
+    otherSubjects.style.display = 'none';
     onlinewarning.style.display = shouldShowWarning ? 'block' : 'none';
   } else if (selectField3.value === 'WACE') {
     selectContainer5.style.display = 'none';
@@ -226,6 +259,7 @@ selectField3.addEventListener('change', function() {
     qceSubjects.style.display = 'none';
     selectContainerSACE.style.display = 'none';
     saceSubjects.style.display = 'none';
+    otherSubjects.style.display = 'none';
     onlinewarning.style.display = shouldShowWarning ? 'block' : 'none';
   } else if (selectField3.value === 'QCE') {
     selectContainer5.style.display = 'none';
@@ -240,6 +274,7 @@ selectField3.addEventListener('change', function() {
     qceSubjects.style.display = 'block';
     selectContainerSACE.style.display = 'none';
     saceSubjects.style.display = 'none';
+    otherSubjects.style.display = 'none';
     onlinewarning.style.display = shouldShowWarning ? 'block' : 'none';
   } else if (selectField3.value === 'SACE') {
     selectContainer5.style.display = 'none';
@@ -254,6 +289,7 @@ selectField3.addEventListener('change', function() {
     qceSubjects.style.display = 'none';
     selectContainerSACE.style.display = 'block';
     saceSubjects.style.display = 'block';
+    otherSubjects.style.display = 'none';
     onlinewarning.style.display = shouldShowWarning ? 'block' : 'none';
   } else {
     // Hide all containers if none of the above options are selected
@@ -269,6 +305,7 @@ selectField3.addEventListener('change', function() {
     qceSubjects.style.display = 'none';
     selectContainerSACE.style.display = 'none';
     saceSubjects.style.display = 'none';
+    otherSubjects.style.display = 'none';
     onlinewarning.style.display = 'none';
   }
 });
@@ -383,7 +420,7 @@ inPerson.addEventListener('change', function() {
     errorMessage.style.display = 'none';
 
     // Check if at least one radio option is selected in Step 2
-    if (!radioOption1.checked && !radioOption2.checked && !radioOption3.checked) {
+    if (!radioOption1.checked && !radioOption2.checked && !radioOption3.checked && !radioOption4.checked) {
         errorMessage.style.display = 'block';
         return false; // Validation failed
     }
@@ -391,7 +428,8 @@ inPerson.addEventListener('change', function() {
     // Check if the corresponding select field is empty for the checked radio option
     if ((radioOption1.checked && selectField1.value === '') ||
         (radioOption2.checked && selectField2.value === '') ||
-        (radioOption3.checked && selectField3.value === '')) {
+        (radioOption3.checked && selectField3.value === '') || 
+        (radioOption4.checked && selectField3.value === '')) {
         errorMessage.style.display = 'block';
         return false; // Validation failed
     }
@@ -434,6 +472,7 @@ inPerson.addEventListener('change', function() {
       var waceSubjects = document.getElementById('waceSubjects');
       var qceSubjects = document.getElementById('qceSubjects');
       var saceSubjects = document.getElementById('saceSubjects');
+      var otherSubjects = document.getElementById('otherSubjects');
 
       var checkboxes = [];
 
@@ -452,6 +491,8 @@ inPerson.addEventListener('change', function() {
         checkboxes = qceSubjects.querySelectorAll('input[type="checkbox"]');
       } else if (saceSubjects.style.display === 'block') {
         checkboxes = saceSubjects.querySelectorAll('input[type="checkbox"]');
+      } else if (otherSubjects.style.display === 'block') {
+        checkboxes = otherSubjects.querySelectorAll('input[type="checkbox"]');
       }
 
 
