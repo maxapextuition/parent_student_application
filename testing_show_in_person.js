@@ -428,8 +428,7 @@ inPerson.addEventListener('change', function() {
     // Check if the corresponding select field is empty for the checked radio option
     if ((radioOption1.checked && selectField1.value === '') ||
         (radioOption2.checked && selectField2.value === '') ||
-        (radioOption3.checked && selectField3.value === '') || 
-        (radioOption4.checked && selectField3.value === '')) {
+        (radioOption3.checked && selectField3.value === '') {
         errorMessage.style.display = 'block';
         return false; // Validation failed
     }
