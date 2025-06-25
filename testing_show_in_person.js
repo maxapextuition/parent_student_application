@@ -476,54 +476,54 @@ inPerson.addEventListener('change', function() {
 
 
     function validateStep4() {
-      // Reset error message
-      var errorMessage = document.getElementById('step4ErrorMessage');
-      errorMessage.style.display = 'none';
+  // Reset error message
+  var errorMessage = document.getElementById('step4ErrorMessage');
+  errorMessage.style.display = 'none';
 
-      // Get the displayed additional div
-      var additionalDiv1 = document.getElementById('additionalDiv1');
-      var additionalDiv2 = document.getElementById('additionalDiv2');
-      var additionalDiv3 = document.getElementById('additionalDiv3');
-      var additionalDiv4 = document.getElementById('additionalDiv4');
-      var waceSubjects = document.getElementById('waceSubjects');
-      var qceSubjects = document.getElementById('qceSubjects');
-      var saceSubjects = document.getElementById('saceSubjects');
-      var otherSubjects = document.getElementById('otherSubjects');
-
-      var checkboxes = [];
-
-      // Check which additional div is displayed
-      if (additionalDiv1.style.display === 'block') {
-        checkboxes = additionalDiv1.querySelectorAll('input[type="checkbox"]');
-      } else if (additionalDiv2.style.display === 'block') {
-        checkboxes = additionalDiv2.querySelectorAll('input[type="checkbox"]');
-      } else if (additionalDiv3.style.display === 'block') {
-        checkboxes = additionalDiv3.querySelectorAll('input[type="checkbox"]');
-      } else if (additionalDiv4.style.display === 'block') {
-        checkboxes = additionalDiv4.querySelectorAll('input[type="checkbox"]');
-      } else if (waceSubjects.style.display === 'block') {
-        checkboxes = waceSubjects.querySelectorAll('input[type="checkbox"]');
-      } else if (qceSubjects.style.display === 'block') {
-        checkboxes = qceSubjects.querySelectorAll('input[type="checkbox"]');
-      } else if (saceSubjects.style.display === 'block') {
-        checkboxes = saceSubjects.querySelectorAll('input[type="checkbox"]');
-      } else if (otherSubjects.style.display === 'block') {
-        checkboxes = otherSubjects.querySelectorAll('input[type="checkbox"]');
-      }
-
-
-      // Check if at least one checkbox option is selected
-      var isChecked = Array.from(checkboxes).some(function (checkbox) {
-        return checkbox.checked;
-      });
-
-      if (!isChecked) {
-        errorMessage.style.display = 'block';
-        return false; // Validation failed
-      }
-
-      return true; // Validation succeeded
+  // Identify which section is currently visible
+  var sectionIds = [
+    'additionalDiv1','additionalDiv2','additionalDiv3','additionalDiv4',
+    'waceSubjects','qceSubjects','saceSubjects','otherSubjects'
+  ];
+  var checkboxes = [];
+  for (var i = 0; i < sectionIds.length; i++) {
+    var sec = document.getElementById(sectionIds[i]);
+    if (sec && sec.style.display === 'block') {
+      checkboxes = sec.querySelectorAll('input[type="checkbox"]');
+      break;
     }
+  }
+
+  // 1) Check if at least one checkbox is selected
+  var isChecked = Array.from(checkboxes).some(function(cb) {
+    return cb.checked;
+  });
+
+  // 2) If no checkboxes checked, look for non-empty text in any "Other" fields
+  var textFieldIds = [
+    'University',
+    'Other-Other',
+    'Other-Young-Years-Subject',
+    'Other-VCE',
+    'Other-IB',
+    'Other-HSC',
+    'Other-WACE-3',
+    'Other-QCE-3',
+    'Other-SACE-3'
+  ];
+  var otherHasText = textFieldIds.some(function(id) {
+    var el = document.getElementById(id);
+    return el && el.value.trim().length > 0;
+  });
+
+  // Final validation: require either a checkbox or some text
+  if (!isChecked && !otherHasText) {
+    errorMessage.style.display = 'block';
+    return false; // Validation failed
+  }
+
+  return true; // Validation succeeded
+}
 
     function validateStep5() {
       // Reset error message
